@@ -1,0 +1,9 @@
+{
+    "include": [
+        "."
+    ],
+    "typeCheckingMode": "strict",
+    "useLibraryCodeForTypes": true,
+    "reportMissingTypeStubs": "none",
+    "reportUnusedImport": "warning",
+}
