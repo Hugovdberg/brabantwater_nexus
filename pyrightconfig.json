@@ -1,6 +1,9 @@
 {
     "include": [
-        "."
+        "src"
+    ],
+    "ignore": [
+        "src/brabantwater_nexus/api.py"
     ],
     "typeCheckingMode": "strict",
     "useLibraryCodeForTypes": true,
