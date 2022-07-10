@@ -1,3 +1,4 @@
+import dataclasses
 from typing import List, Optional
 
 import pydantic
@@ -6,6 +7,24 @@ from shapely import geometry
 from brabantwater_nexus.data_connection import DataConnection
 from brabantwater_nexus.monitoring_station_type import MonitoringStationType
 from brabantwater_nexus.owner import Owner
+
+
+@dataclasses.dataclass(frozen=True)
+class MonitoringStationMetadata:
+    dawaco_mp_recnum: int
+    id_src: str
+    label: str
+    group: MonitoringStationType
+    owner: Owner
+
+
+@dataclasses.dataclass(frozen=True)
+class MonitoringStationLocation:
+    dawaco_mp_recnum: int
+    x: float
+    y: float
+    surface_elevation: float
+    sensor_elevation: Optional[float]
 
 
 class MonitoringStation(pydantic.BaseModel):
