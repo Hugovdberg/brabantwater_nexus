@@ -53,7 +53,6 @@ class GroundwaterMonitoringTube(pydantic.BaseModel):
         description=(
             "ID van de bovenliggende monitoring station binnen het bron systeem."
         ),
-        ge=-1,
     )
     x: float = pydantic.Field(
         description=(
