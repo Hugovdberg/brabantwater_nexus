@@ -5,6 +5,7 @@ import pydantic
 from shapely import geometry
 
 from brabantwater_nexus.data_connection import DataConnection
+from brabantwater_nexus.hashable import HashableModel
 
 
 @dataclasses.dataclass(frozen=True)
@@ -27,7 +28,7 @@ class GroundwaterMonitoringTubeLocation:
     screen_bottom: float
 
 
-class GroundwaterMonitoringTube(pydantic.BaseModel):
+class GroundwaterMonitoringTube(HashableModel):
     """Peilbuis, onderdeel van een MonitoringStation"""
 
     id: int = pydantic.Field(
