@@ -5,6 +5,7 @@ import pydantic
 from shapely import geometry
 
 from brabantwater_nexus.data_connection import DataConnection
+from brabantwater_nexus.hashable import HashableModel
 from brabantwater_nexus.monitoring_station_type import MonitoringStationType
 from brabantwater_nexus.owner import Owner
 
@@ -27,7 +28,7 @@ class MonitoringStationLocation:
     sensor_elevation: Optional[float]
 
 
-class MonitoringStation(pydantic.BaseModel):
+class MonitoringStation(HashableModel):
     """Fysieke meetlocatie waar een of meer metingen aan gekoppeld zijn"""
 
     id: int = pydantic.Field(
