@@ -33,13 +33,7 @@ class TimeseriesEvent(HashableModel):
     )
 
 
-class TimeseriesEventSet(pydantic.BaseModel):
+class TimeseriesEventList(pydantic.BaseModel):
     """Set van TimeseriesEvent objecten, niet per se van een enkele time series"""
 
-    start_date: datetime.datetime = pydantic.Field(
-        "Startdatum van de metingen in de set."
-    )
-    end_date: datetime.datetime = pydantic.Field(
-        description="Einddatum van de metingen in de set."
-    )
-    events: List[TimeseriesEvent] = pydantic.Field(description="Events in de set")
+    __root__: List[TimeseriesEvent] = pydantic.Field(description="Events in de set")
