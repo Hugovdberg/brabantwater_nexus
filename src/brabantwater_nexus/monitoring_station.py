@@ -11,15 +11,6 @@ from brabantwater_nexus.owner import Owner
 
 
 @dataclasses.dataclass(frozen=True)
-class MonitoringStationMetadata:
-    dawaco_mp_recnum: int
-    id_src: str
-    label: str
-    group: MonitoringStationType
-    owner: Owner
-
-
-@dataclasses.dataclass(frozen=True)
 class MonitoringStationLocation:
     dawaco_mp_recnum: int
     x: float

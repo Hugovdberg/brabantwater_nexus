@@ -9,16 +9,6 @@ from brabantwater_nexus.hashable import HashableModel
 
 
 @dataclasses.dataclass(frozen=True)
-class GroundwaterMonitoringTubeMetadata:
-    dawaco_filters_recnum: int
-    putcode_dawaco: str
-    filternummer: int
-    label: str
-    id_src: str
-    monitoring_station_id_src: str
-
-
-@dataclasses.dataclass(frozen=True)
 class GroundwaterMonitoringTubeLocation:
     dawaco_filters_recnum: int
     x: float

@@ -5,13 +5,11 @@ from .groundwater_monitoring_tube import (
     GroundwaterMonitoringTube,
     GroundwaterMonitoringTubeList,
     GroundwaterMonitoringTubeLocation,
-    GroundwaterMonitoringTubeMetadata,
 )
 from .monitoring_station import (
     MonitoringStation,
     MonitoringStationList,
     MonitoringStationLocation,
-    MonitoringStationMetadata,
 )
 from .monitoring_station_type import MonitoringStationType
 from .owner import Owner
