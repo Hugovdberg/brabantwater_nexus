@@ -34,6 +34,6 @@ class TimeseriesEvent(HashableModel):
 
 
 class TimeseriesEventList(pydantic.BaseModel):
-    """Set van TimeseriesEvent objecten, niet per se van een enkele time series"""
+    """Lijst van TimeseriesEvent objecten, niet per se van een enkele time series"""
 
-    __root__: List[TimeseriesEvent] = pydantic.Field(description="Events in de set")
+    __root__: List[TimeseriesEvent]
