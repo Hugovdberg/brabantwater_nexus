@@ -27,7 +27,8 @@ class TimeseriesEvent(HashableModel):
     )
     parameter: TimeseriesParameter = pydantic.Field(description="Parameter")
     timestamp: datetime.datetime = pydantic.Field(description="Tijdstip van de meting")
-    value: Optional[float] = pydantic.Field(description="Meting")
+    value: Optional[float] = pydantic.Field(description="Meting (numerieke waarde)")
+    text_value: Optional[str] = pydantic.Field(description="Meting (tekstwaarde)")
     missing_value_reason: Optional[MissingValueReason] = pydantic.Field(
         description="Reden voor afwezigheid meting, alleen gevuld bij afwezigheid meting."
     )
