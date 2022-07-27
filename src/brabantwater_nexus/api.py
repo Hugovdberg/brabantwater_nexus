@@ -1,5 +1,4 @@
 """Single point of entry to import all necessary types"""
-from .data_connection import DataConnection
 from .feature_type import FeatureType
 from .groundwater_monitoring_tube import (
     GroundwaterMonitoringTube,

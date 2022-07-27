@@ -3,7 +3,6 @@ from typing import List, Optional
 
 import pydantic
 
-from brabantwater_nexus.data_connection import DataConnection
 from brabantwater_nexus.feature_type import FeatureType
 from brabantwater_nexus.hashable import HashableModel
 from brabantwater_nexus.timeseries_missing_value_reason import MissingValueReason
@@ -11,16 +10,8 @@ from brabantwater_nexus.timeseries_parameter import TimeseriesParameter
 
 
 class TimeseriesEvent(HashableModel):
-    dc_id: DataConnection = pydantic.Field(description="ID van de data connection.")
     feature_type: FeatureType = pydantic.Field(
         description="Type meetpunt waaraan de meting gekoppeld moet worden."
-    )
-    feature_id: int = pydantic.Field(
-        description=(
-            "ID van het meetpunt binnen Nexus, aangemaakt door Nexus. "
-            "Bij bulkleveringen aangeleverd met ID -1."
-        ),
-        ge=-1,
     )
     feature_id_src: str = pydantic.Field(
         description=("ID van het meetpunt binnen het bron systeem."),
