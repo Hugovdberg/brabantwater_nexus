@@ -1,5 +1,5 @@
 import datetime
-from typing import List, Optional
+from typing import List, Optional, Tuple
 
 import pydantic
 
@@ -9,7 +9,7 @@ from brabantwater_nexus.timeseries_missing_value_reason import MissingValueReaso
 from brabantwater_nexus.timeseries_parameter import TimeseriesParameter
 
 
-class TimeseriesEvent(HashableModel):
+class Timeseries(HashableModel):
     feature_type: FeatureType = pydantic.Field(
         description="Type meetpunt waaraan de meting gekoppeld moet worden."
     )
@@ -17,15 +17,17 @@ class TimeseriesEvent(HashableModel):
         description=("ID van het meetpunt binnen het bron systeem."),
     )
     parameter: TimeseriesParameter = pydantic.Field(description="Parameter")
-    timestamp: datetime.datetime = pydantic.Field(description="Tijdstip van de meting")
-    value: Optional[float] = pydantic.Field(description="Meting (numerieke waarde)")
-    text_value: Optional[str] = pydantic.Field(description="Meting (tekstwaarde)")
-    missing_value_reason: Optional[MissingValueReason] = pydantic.Field(
-        description="Reden voor afwezigheid meting, alleen gevuld bij afwezigheid meting."
-    )
+    values: List[
+        Tuple[
+            datetime.datetime,
+            Optional[float],
+            Optional[str],
+            Optional[MissingValueReason],
+        ]
+    ] = pydantic.Field(description="Metingen")
 
 
-class TimeseriesEventList(pydantic.BaseModel):
+class TimeseriesList(pydantic.BaseModel):
     """Lijst van TimeseriesEvent objecten, niet per se van een enkele time series"""
 
-    __root__: List[TimeseriesEvent]
+    __root__: List[Timeseries]
