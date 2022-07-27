@@ -4,7 +4,6 @@ from typing import List
 import pydantic
 from shapely import geometry
 
-from brabantwater_nexus.data_connection import DataConnection
 from brabantwater_nexus.hashable import HashableModel
 
 
@@ -21,24 +20,8 @@ class GroundwaterMonitoringTubeLocation:
 class GroundwaterMonitoringTube(HashableModel):
     """Peilbuis, onderdeel van een MonitoringStation"""
 
-    id: int = pydantic.Field(
-        description=(
-            "ID van de peilbuis binnen Nexus, aangemaakt door Nexus. "
-            "Nieuwe buizen worden aangeleverd met ID -1."
-        ),
-        ge=-1,
-    )
-    dc_id: DataConnection = pydantic.Field(description="ID van de data connection.")
     id_src: str = pydantic.Field(
         description="ID van de peilbuis binnen het bron systeem."
-    )
-    monitoring_station_id: int = pydantic.Field(
-        description=(
-            "ID van de bovenliggende monitoring station binnen Nexus, "
-            "aangemaakt door Nexus. "
-            "Nieuwe buizen worden aangeleverd met ID -1."
-        ),
-        ge=-1,
     )
     monitoring_station_id_src: str = pydantic.Field(
         description=(
